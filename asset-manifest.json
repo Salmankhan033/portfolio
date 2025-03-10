@@ -1,8 +1,11 @@
 {
   "files": {
     "main.css": "/my-react--portfolio/static/css/main.4124f459.css",
-    "main.js": "/my-react--portfolio/static/js/main.b0914eac.js",
+    "main.js": "/my-react--portfolio/static/js/main.447a44bf.js",
+    "static/media/Parko.png": "/my-react--portfolio/static/media/Parko.3725bd528933f32d1c31.png",
     "static/media/main-image.png": "/my-react--portfolio/static/media/main-image.7046c6a8f2ba3724a33b.png",
+    "static/media/CoboneDealsCoupons.png": "/my-react--portfolio/static/media/CoboneDealsCoupons.f90a819cbe7bbef3736d.png",
+    "static/media/Readi.png": "/my-react--portfolio/static/media/Readi.64bb9981b141dc53ed2a.png",
     "static/media/avatar.png": "/my-react--portfolio/static/media/avatar.54a3b876d58b4b9559f9.png",
     "static/media/SocarTracking.png": "/my-react--portfolio/static/media/SocarTracking.a93a28fc531b0f9f3e38.png",
     "static/media/FritoChichen.png": "/my-react--portfolio/static/media/FritoChichen.c4e0a6af75dd8d2bc928.png",
@@ -15,6 +18,7 @@
     "static/media/Reko.png": "/my-react--portfolio/static/media/Reko.9e2cab0e2a9b11ac68b1.png",
     "static/media/GetReframe.png": "/my-react--portfolio/static/media/GetReframe.2ca5d0a41df148592280.png",
     "static/media/Mostagbalik.png": "/my-react--portfolio/static/media/Mostagbalik.c860986dcd39d5a31c67.png",
+    "static/media/CobonePartner.png": "/my-react--portfolio/static/media/CobonePartner.b72826c5d934f8e79134.png",
     "static/media/MyDrinkOrder.png": "/my-react--portfolio/static/media/MyDrinkOrder.11e505b9ab0b4d33e6cf.png",
     "static/media/slick.svg": "/my-react--portfolio/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/my-react--portfolio/static/media/slick.a4e97f5a2a64f0ab1323.eot",
@@ -22,10 +26,10 @@
     "index.html": "/my-react--portfolio/index.html",
     "static/media/slick.woff": "/my-react--portfolio/static/media/slick.295183786cd8a1389865.woff",
     "main.4124f459.css.map": "/my-react--portfolio/static/css/main.4124f459.css.map",
-    "main.b0914eac.js.map": "/my-react--portfolio/static/js/main.b0914eac.js.map"
+    "main.447a44bf.js.map": "/my-react--portfolio/static/js/main.447a44bf.js.map"
   },
   "entrypoints": [
     "static/css/main.4124f459.css",
-    "static/js/main.b0914eac.js"
+    "static/js/main.447a44bf.js"
   ]
 }
