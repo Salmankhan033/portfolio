@@ -137,67 +137,142 @@ export default function Skills() {
   useEffect(() => {
     AOS.init({ duration: 2000 });
   }, []);
+
+  const mobileStack = frontend
+    .map((s) => s.name)
+    .filter((name) =>
+      [
+        "React Native",
+        "React Native Reanimated",
+        "Gesture Handler",
+        "Lottie Animation",
+        "Firebase",
+      ].includes(name)
+    );
+
+  const coreStack = frontend
+    .map((s) => s.name)
+    .filter((name) =>
+      [
+        "JavaScript",
+        "TypeScript",
+        "React Hooks",
+        "React Redux",
+        "React Router",
+      ].includes(name)
+    );
+
+  const tooling = Others.map((s) => s.name).filter((name) =>
+    [
+      "GitHub",
+      "BitBucket",
+      "Version Control",
+      "Testing & Debugging",
+      "Third Party Libraries",
+    ].includes(name)
+  );
+
+  const product = Others.map((s) => s.name).filter((name) =>
+    [
+      "API Integration",
+      "REST APIs",
+      "Push Notifications",
+      "Payment Integration",
+      "Google Map Api",
+      "UI/UX Implementation",
+      "Responsive Design",
+      "Google Play console management",
+    ].includes(name)
+  );
+
   return (
     <div className="py-24 sm:py-32" id="skills">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-xl leading-7">Explore my</h2>
+          <h2 className="text-xl leading-7 opacity-80">Explore my</h2>
           <p className="mt-2 text-4xl font-bold tracking-tight sm:text-6xl">
             Skills
           </p>
         </div>
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:gap-y-10">
+        <div className="mx-auto mt-12 grid max-w-2xl grid-cols-1 gap-6 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div
-            className="mt-10 max-w-2xl sm:mt-10 lg:mt-10 lg:max-w-4xl bg-base-200 ring-2 ring-base-300 rounded-2xl p-5 shadow-xl"
+            className="rounded-3xl border border-base-300/60 bg-base-200/60 backdrop-blur-xl p-6 shadow-xl shadow-primary/5"
             data-aos="zoom-in"
           >
-            <p className="text-2xl text-center font-bold mb-6">
-              Frontend Development
-            </p>
-            <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-6 lg:max-w-none lg:grid-cols-2 lg:gap-y-6">
-              {frontend.map((frontend) => (
-                <div key={frontend.name} className="relative pl-16">
-                  <dt className="text-base font-semibold leading-7">
-                    <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg">
-                      <frontend.icon className="h-6 w-6" aria-hidden="true" />
-                    </div>
-                    {frontend.name}
-                  </dt>
-                  <dd className="mt-2 text-base leading-7">
-                    <progress
-                      className="progress w-3/4"
-                      value={frontend.value}
-                      max="100"
-                    ></progress>
-                  </dd>
-                </div>
+            <div className="flex items-center justify-between">
+              <p className="text-xl font-bold">Mobile Stack</p>
+              <span className="badge badge-primary badge-outline">React Native</span>
+            </div>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {mobileStack.map((name) => (
+                <span
+                  key={name}
+                  className="badge badge-outline border-base-300/70 px-4 py-3"
+                >
+                  {name}
+                </span>
               ))}
-            </dl>
+            </div>
           </div>
+
           <div
-            className="mt-10 max-w-2xl sm:mt-10 lg:mt-10 lg:max-w-4xl bg-base-200 ring-2 ring-base-300 rounded-2xl p-5 shadow-xl"
+            className="rounded-3xl border border-base-300/60 bg-base-200/60 backdrop-blur-xl p-6 shadow-xl shadow-primary/5"
             data-aos="zoom-in"
           >
-            <p className="text-2xl text-center font-bold mb-6">Others</p>
-            <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-6 lg:max-w-none lg:grid-cols-2 lg:gap-y-6">
-              {Others.map((item) => (
-                <div key={item.name} className="relative pl-16">
-                  <dt className="text-base font-semibold leading-7">
-                    <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg">
-                      <item.icon className="h-6 w-6" aria-hidden="true" />
-                    </div>
-                    {item.name}
-                  </dt>
-                  <dd className="mt-2 text-base leading-7">
-                    <progress
-                      className="progress w-3/4"
-                      value={item.value}
-                      max="100"
-                    ></progress>
-                  </dd>
-                </div>
+            <div className="flex items-center justify-between">
+              <p className="text-xl font-bold">Core Frontend</p>
+              <span className="badge badge-secondary badge-outline">JS/TS</span>
+            </div>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {coreStack.map((name) => (
+                <span
+                  key={name}
+                  className="badge badge-outline border-base-300/70 px-4 py-3"
+                >
+                  {name}
+                </span>
               ))}
-            </dl>
+            </div>
+          </div>
+
+          <div
+            className="rounded-3xl border border-base-300/60 bg-base-200/60 backdrop-blur-xl p-6 shadow-xl shadow-primary/5"
+            data-aos="zoom-in"
+          >
+            <div className="flex items-center justify-between">
+              <p className="text-xl font-bold">Product & Integrations</p>
+              <span className="badge badge-accent badge-outline">Delivery</span>
+            </div>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {product.map((name) => (
+                <span
+                  key={name}
+                  className="badge badge-outline border-base-300/70 px-4 py-3"
+                >
+                  {name}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div
+            className="rounded-3xl border border-base-300/60 bg-base-200/60 backdrop-blur-xl p-6 shadow-xl shadow-primary/5"
+            data-aos="zoom-in"
+          >
+            <div className="flex items-center justify-between">
+              <p className="text-xl font-bold">Tooling</p>
+              <span className="badge badge-outline">Workflow</span>
+            </div>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {tooling.map((name) => (
+                <span
+                  key={name}
+                  className="badge badge-outline border-base-300/70 px-4 py-3"
+                >
+                  {name}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>

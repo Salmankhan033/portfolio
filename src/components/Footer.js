@@ -3,10 +3,10 @@ export default function Footer() {
   //   window.location.href = "mailto:salmankn033@gmail.com";
   // };
   return (
-    <div className="text-lg text-center relative isolate px-6 py-24 lg:px-8">
+    <div className="text-lg text-center relative isolate px-6 py-16 lg:px-8 border-t border-base-300/60">
       <div className="mt-10 flex items-center justify-center gap-x-4">
         <button
-          className="btn btn-outline btn-square"
+          className="btn btn-outline btn-square border-base-300/70"
           onClick={() =>
             window.open(
               "https://www.linkedin.com/in/salman-mobileappdev/",
@@ -24,7 +24,7 @@ export default function Footer() {
           </svg>
         </button>
         <button
-          className="btn btn-outline btn-square"
+          className="btn btn-outline btn-square border-base-300/70"
           onClick={() =>
             window.open("https://github.com/Salmankhan033", "_blank")
           }
@@ -40,7 +40,7 @@ export default function Footer() {
         </button>
         <button
           onClick={() => window.open("mailto:salmankn033@gmail.com", "_blank")}
-          className="btn btn-outline btn-square"
+          className="btn btn-outline btn-square border-base-300/70"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +53,7 @@ export default function Footer() {
           </svg>
         </button>
         <button
-          className="btn btn-outline btn-square flex items-center justify-center m-0 p-0"
+          className="btn btn-outline btn-square flex items-center justify-center m-0 p-0 border-base-300/70"
           onClick={() =>
             window.open("https://www.fiverr.com/pro_salman11", "_blank")
           }
@@ -72,7 +72,7 @@ export default function Footer() {
         </button>
 
         <button
-          className="btn btn-outline btn-square flex"
+          className="btn btn-outline btn-square flex border-base-300/70"
           onClick={() =>
             window.open(
               "https://www.upwork.com/freelancers/~0187e699b709695c45?mp_source=share",

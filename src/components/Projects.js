@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-scroll";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "slick-carousel/slick/slick.css";
@@ -82,7 +83,7 @@ const projects = [
       "Mostagbalik is your 24/7 Academic Consultancy, guiding students to secure university acceptances and providing academic and career support. From choosing majors and applying to universities to assisting with visas, assignments, and job placements, we’re revolutionizing academic counseling. Soon, our app will make accessing services, applying to universities, and tracking paperwork easier than ever. Let us help you achieve your goals!",
   },
   {
-    id: 7,
+    id: 8,
     name: "My Drink Order",
     href: "https://apps.apple.com/pk/app/my-drink-order/id6443959789",
     imageSrc: MyDrinkOrder,
@@ -91,7 +92,7 @@ const projects = [
       "Skip the chaos with My Drink app! Browse popular drinks, customize orders, and show them to your bartender—no shouting needed. Order fast, enjoy quicker!",
   },
   {
-    id: 8,
+    id: 9,
     name: "OrderLemon",
     href: "https://play.google.com/store/apps/details?id=com.orderlemon&pcampaignid=web_share",
     imageSrc: OrderLemon,
@@ -100,7 +101,7 @@ const projects = [
       "Sell via WhatsApp! Manage shops, staff, and orders with ease. Get a local WhatsApp number—no registration needed. Accessible on any device!",
   },
   {
-    id: 9,
+    id: 10,
     name: "Socar Tracking",
     href: "https://apps.apple.com/pk/app/socar-tracking/id1141679676",
     imageSrc: SocarTracking,
@@ -109,7 +110,7 @@ const projects = [
       "SOCAR TRACKING is the application that will allow the best tracking service for al your vehicles expeditions with SOCAR SHIPPING AGENCY.",
   },
   {
-    id: 10,
+    id: 11,
     name: "VIP Wholesale",
     href: "https://play.google.com/store/apps/details?id=com.ordertaking&pcampaignid=web_share",
     imageSrc: VIPWholeSale,
@@ -118,7 +119,7 @@ const projects = [
       "At VIP Wholesale you will find all your convenience store needs. You will find a large variety of grocery items, tobacco, drinks, medicine, car products, home care products, and much more.",
   },
   {
-    id: 11,
+    id: 12,
     name: "vocn Veterinary TeleSpecialty",
     href: "#",
     imageSrc: VOcn,
@@ -603,58 +604,122 @@ export default function Projects() {
     autoplaySpeed: 3000,
   };
 
+  const featuredProject = projects[0];
+  const gridProjects = projects.slice(1);
+
   return (
     <div id="projects">
       <div className="mx-auto max-w-2xl px-6 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8">
-        <h2 className="text-lg leading-7">Browse my recent</h2>
+        <h2 className="text-lg leading-7 opacity-80">Browse my recent</h2>
         <p className="mt-2 text-4xl font-bold tracking-tight sm:text-6xl">
           Projects
         </p>
-        <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-          {projects.slice(0, visibleProjects).map((project) => (
-            <div
-              key={project.id}
-              className="group relative ring-2 ring-base-300 bg-base-200 rounded-2xl shadow-xl"
-              data-aos="flip-left"
-            >
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none group-hover:brightness-75 duration-300 delay-100 lg:h-80 rounded-t-2xl">
+        <div className="mt-10" data-aos="fade-up">
+          <div className="mb-6 flex items-center justify-between">
+            <p className="text-xl font-bold">Featured Project</p>
+            <span className="badge badge-primary badge-outline">Highlight</span>
+          </div>
+          <div className="group relative overflow-hidden rounded-3xl border border-base-300/60 bg-base-200/60 backdrop-blur-xl shadow-2xl shadow-primary/10 transition duration-300 hover:shadow-primary/20">
+            <div className="grid gap-0 lg:grid-cols-2">
+              <div className="relative overflow-hidden">
                 <img
-                  src={project.imageSrc}
-                  alt={project.name}
-                  className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                  src={featuredProject.imageSrc}
+                  alt={featuredProject.name}
+                  className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-[1.02]"
                 />
               </div>
-              <div className="mt-4 flex justify-between p-4">
-                <div className="p-4">
-                  <h3 className="text-lg font-bold">
+              <div className="p-6 sm:p-8">
+                <p className="text-xs font-semibold tracking-widest opacity-70">
+                  FEATURED
+                </p>
+                <h3 className="mt-2 text-2xl font-extrabold tracking-tight">
+                  {featuredProject.name}
+                </h3>
+                <p className="mt-3 text-sm leading-7 opacity-80">
+                  {featuredProject.description}
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <span className="badge badge-outline border-base-300/70">
+                    {featuredProject.used}
+                  </span>
+                </div>
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                  <a
+                    href={featuredProject.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn btn-primary"
+                  >
+                    Open Project
+                  </a>
+                  <Link
+                    to="contact"
+                    spy={true}
+                    smooth={true}
+                    offset={50}
+                    duration={500}
+                    className="btn btn-outline border-base-300/70"
+                  >
+                    Build Something Similar
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-14">
+          <div className="mb-6 flex items-center justify-between">
+            <p className="text-xl font-bold">More Projects</p>
+            <span className="badge badge-secondary badge-outline">Portfolio</span>
+          </div>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {gridProjects.slice(0, visibleProjects).map((project) => (
+              <div
+                key={project.id}
+                className="group relative overflow-hidden rounded-3xl border border-base-300/60 bg-base-200/60 backdrop-blur-xl shadow-xl shadow-primary/5 transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/10"
+                data-aos="flip-left"
+              >
+                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden lg:aspect-none group-hover:brightness-90 duration-300 delay-100 lg:h-64">
+                  <img
+                    src={project.imageSrc}
+                    alt={project.name}
+                    className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                  />
+                </div>
+                <div className="p-5">
+                  <h3 className="text-lg font-bold leading-snug">
                     <a href={project.href} target="_blank" rel="noreferrer">
                       <span aria-hidden="true" className="absolute inset-0" />
                       {project.name}
                     </a>
                   </h3>
-                  <p className="mt-1 mb-5 text-sm line-clamp-1">
+                  <p className="mt-2 text-sm opacity-80 line-clamp-2">
                     {project.description}
                   </p>
-                  <p className="text-sm font-medium">{project.used}</p>
+                  <p className="mt-3 text-sm font-medium opacity-90">{project.used}</p>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-        {visibleProjects < projects.length && (
-          <div className="mt-16 flex justify-center">
-            <button className="btn btn-outline" onClick={handleViewMore}>
-              View More
-            </button>
+            ))}
           </div>
-        )}
+          {visibleProjects < gridProjects.length && (
+            <div className="mt-10 flex justify-center">
+              <button
+                className="btn btn-outline border-base-300/70"
+                onClick={handleViewMore}
+              >
+                View More
+              </button>
+            </div>
+          )}
+        </div>
         <div className="mt-32 mx-auto max-w-2xl text-center">
-          <h2 className="text-xl leading-7">kind respect from clients</h2>
+          <h2 className="text-xl leading-7 opacity-80">kind respect from clients</h2>
           <p className="mt-2 text-4xl font-bold tracking-tight sm:text-6xl">
             Fiverr
           </p>
         </div>
-        <div className="mt-15">
+        <div className="mt-10 rounded-3xl border border-base-300/60 bg-base-200/60 backdrop-blur-xl shadow-xl shadow-primary/5">
           <Slider {...sliderSettings}>
             {fiverrTestimonials.map((testimonial) => (
               <div key={testimonial.id} className="text-center p-8">
@@ -671,7 +736,7 @@ export default function Projects() {
                 <div className="flex justify-center items-center">
                   <div>
                     <p className="font-bold">{testimonial.name}</p>
-                    <p className="text-sm text-gray-500">{testimonial.title}</p>
+                    <p className="text-sm opacity-70">{testimonial.title}</p>
                   </div>
                 </div>
               </div>
@@ -681,12 +746,12 @@ export default function Projects() {
         {/* upwork rewiew */}
 
         <div className="mt-32 mx-auto max-w-2xl text-center">
-          <h2 className="text-xl leading-7">kind respect from clients</h2>
+          <h2 className="text-xl leading-7 opacity-80">kind respect from clients</h2>
           <p className="mt-2 text-4xl font-bold tracking-tight sm:text-6xl">
             Upwork Talent
           </p>
         </div>
-        <div className="mt-15">
+        <div className="mt-10 rounded-3xl border border-base-300/60 bg-base-200/60 backdrop-blur-xl shadow-xl shadow-primary/5">
           <Slider {...sliderSettings2}>
             {upworkTestimonials.map((testimonial) => (
               <div key={testimonial.id} className="text-center p-8">
@@ -703,7 +768,7 @@ export default function Projects() {
                 <div className="flex justify-center items-center">
                   <div>
                     <p className="font-bold">{testimonial.name}</p>
-                    <p className="text-sm text-gray-500">{testimonial.title}</p>
+                    <p className="text-sm opacity-70">{testimonial.title}</p>
                   </div>
                 </div>
               </div>
@@ -711,12 +776,12 @@ export default function Projects() {
           </Slider>
         </div>
         <div className="mt-32 mx-auto max-w-2xl text-center">
-          <h2 className="text-xl leading-7">kind respect from clients</h2>
+          <h2 className="text-xl leading-7 opacity-80">kind respect from clients</h2>
           <p className="mt-2 text-4xl font-bold tracking-tight sm:text-6xl">
             Linkedin
           </p>
         </div>
-        <div className="mt-15">
+        <div className="mt-10 rounded-3xl border border-base-300/60 bg-base-200/60 backdrop-blur-xl shadow-xl shadow-primary/5">
           <Slider {...sliderSettings3}>
             {linkedinTestimonials.map((testimonial) => (
               <div key={testimonial.id} className="text-center p-8">
@@ -733,7 +798,7 @@ export default function Projects() {
                 <div className="flex justify-center items-center">
                   <div>
                     <p className="font-bold">{testimonial.name}</p>
-                    <p className="text-sm text-gray-500">{testimonial.title}</p>
+                    <p className="text-sm opacity-70">{testimonial.title}</p>
                   </div>
                 </div>
               </div>
