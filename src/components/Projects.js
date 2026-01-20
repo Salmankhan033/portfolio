@@ -19,6 +19,41 @@ import VOcn from "../projectImages/VOcn.png";
 import OrderLemon from "../projectImages/OrderLemon.png";
 import SocarTracking from "../projectImages/SocarTracking.png";
 
+function Avatar({ src, alt }) {
+  const [errored, setErrored] = useState(false);
+
+  if (!src || src === "#" || errored) {
+    return (
+      <div className="w-14 h-14 rounded-full grid place-items-center border border-base-300/60 bg-base-100/30">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className="w-7 h-7 opacity-70"
+          aria-hidden="true"
+        >
+          <path
+            fillRule="evenodd"
+            d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.75 20.105a8.25 8.25 0 0 1 16.5 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5a18.683 18.683 0 0 1-7.813-1.7.75.75 0 0 1-.437-.695Z"
+            clipRule="evenodd"
+          />
+        </svg>
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className="w-14 h-14 rounded-full object-cover"
+      loading="lazy"
+      referrerPolicy="no-referrer"
+      onError={() => setErrored(true)}
+    />
+  );
+}
+
 const projects = [
   {
     id: 1,
@@ -726,11 +761,7 @@ export default function Projects() {
                 {/* Message */}
                 <p className="text-lg italic mb-4">" {testimonial.message} "</p>
                 <div className="flex justify-center mt-8 mb-2">
-                  <img
-                    src={testimonial.imageSrc}
-                    alt={testimonial.name}
-                    className="w-14 h-14 rounded-full object-cover"
-                  />
+                  <Avatar src={testimonial.imageSrc} alt={testimonial.name} />
                 </div>
 
                 <div className="flex justify-center items-center">
@@ -758,11 +789,7 @@ export default function Projects() {
                 {/* Message */}
                 <p className="text-lg italic mb-4">" {testimonial.message} "</p>
                 <div className="flex justify-center mt-8 mb-2">
-                  <img
-                    src={testimonial.imageSrc}
-                    alt={testimonial.name}
-                    className="w-14 h-14 rounded-full object-cover"
-                  />
+                  <Avatar src={testimonial.imageSrc} alt={testimonial.name} />
                 </div>
 
                 <div className="flex justify-center items-center">
@@ -788,11 +815,7 @@ export default function Projects() {
                 {/* Message */}
                 <p className="text-lg italic mb-4">" {testimonial.message} "</p>
                 <div className="flex justify-center mt-8 mb-2">
-                  <img
-                    src={testimonial.imageSrc}
-                    alt={testimonial.name}
-                    className="w-14 h-14 rounded-full object-cover"
-                  />
+                  <Avatar src={testimonial.imageSrc} alt={testimonial.name} />
                 </div>
 
                 <div className="flex justify-center items-center">
