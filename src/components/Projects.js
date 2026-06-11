@@ -5,19 +5,10 @@ import "aos/dist/aos.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import Reko from "../projectImages/Reko.png";
-import AmisChoice from "../projectImages/AmisChoice.png";
-import CbumFitness from "../projectImages/CbumFitness.png";
-import FritoChichen from "../projectImages/FritoChichen.png";
-import GetHoopte from "../projectImages/GetHoopte.png";
-import GetReframe from "../projectImages/GetReframe.png";
-import Mostagbalik from "../projectImages/Mostagbalik.png";
-import MyDrinkOrder from "../projectImages/MyDrinkOrder.png";
-import VIPWholeSale from "../projectImages/VIPWholeSale.png";
-import VOcn from "../projectImages/VOcn.png";
-
-import OrderLemon from "../projectImages/OrderLemon.png";
-import SocarTracking from "../projectImages/SocarTracking.png";
+import ProjectIcon from "./ProjectIcon";
+import StoreButtons, { PlatformBadges } from "./StoreButtons";
+import { parseTechStack, getProjectPlatforms } from "../utils/storeLinks";
+import { getProjectDescription } from "../utils/projectDescription";
 
 function Avatar({ src, alt }) {
   const [errored, setErrored] = useState(false);
@@ -57,111 +48,267 @@ function Avatar({ src, alt }) {
 const projects = [
   {
     id: 1,
-    name: "Socar Tracking",
-    href: "https://apps.apple.com/pk/app/socar-tracking/id1141679676",
-    imageSrc: Reko,
-    used: "Expo, TypeScript etc",
+    name: "Cobone Deals & Special Offers",
+    href: "https://apps.apple.com/us/app/cobone-deals-coupons/id1114440341",
+    android:
+      "https://play.google.com/store/apps/details?id=com.cobone.coboneapp",
+    // imageSrc: VOcn,
+    used: "React native, JavaScript, Notifications, Payments getways,Social auth,API integrations  ",
     description:
-      "SOCAR TRACKING is the application that will allow the best tracking service for al your vehicles expeditions with SOCAR SHIPPING AGENCY.",
+      "Cobone is your go-to platform for incredible offers and unforgettable experiences across the GCC. Whether it’s dining, travel, wellness, or entertainment, Cobone helps you enjoy more while saving big.",
   },
   {
     id: 2,
     name: "Restaurants & Local Food bozt",
     href: "https://apps.apple.com/pk/app/restaurants-local-food-bozt/id1500087580",
-    imageSrc: AmisChoice,
-    used: "React Native, JavaScript etc",
+    used: "React Native, JavaScript, firebase Notifications, API integrations ",
     description:
       "Bōzt is your answer to, where to eat? with the help of restaurant recommendations from people you know and trust.",
   },
   {
     id: 3,
-    name: "Cbumn Fitness",
-    href: "https://play.google.com/store/apps/details?id=uni.cbum&pcampaignid=web_share",
-    imageSrc: CbumFitness,
+    name: "STNDRD Workout & Fitness Plans",
+    href: "https://apps.apple.com/om/app/stndrd-workout-fitness-plans/id1573298047",
+    android:
+      "https://play.google.com/store/apps/details?id=uni.cbum&pcampaignid=web_share",
+    // imageSrc: CbumFitness,
     used: "React Native, JavaScript etc",
     description:
       "Elevate your fitness journey with STNDRD, the premier app designed to help you unlock your full potential. Whether you’re aiming to build muscle, tone your body, or enhance overall fitness, STNDRD provides the tools, guidance, and motivation you need to achieve greatness.",
   },
+
+ 
   {
-    id: 4,
-    name: "Frito Chichen",
-    href: "https://apps.apple.com/pk/app/frito-chicken/id1643294705",
-    imageSrc: FritoChichen,
-    used: "React Native, JavaScript etc",
+    id: 9,
+    name: "OrderLemon ( Available only in Belgium & Netherland)",
+    href: "https://apps.apple.com/us/app/orderlemon/id6451381557",
+    android:
+      "https://play.google.com/store/apps/details?id=com.orderlemon&pcampaignid=web_share",
+    // imageSrc: OrderLemon,
+    used: "React Native, TypeScript",
     description:
-      "The App will be running the Website for Fried Chicken Restaurant. The App allows to check menu and place order online. All the functionality is running on the website.",
+      "Sell via WhatsApp! Manage shops, staff, and orders with ease. Get a local WhatsApp number—no registration needed. Accessible on any device!",
+  },
+
+  {
+    id: 12,
+    name: "vocn Veterinary TeleSpecialty",
+    href: "https://apps.apple.com/pk/app/vocn/id1628430389",
+    android: "https://play.google.com/store/apps/details?id=chat.vocn.org",
+    // imageSrc: VOcn,
+    used: "React native, JavaScript ",
+    description: `Vets On Call Network (VOCN) Specialists will help restore health to your beloved family pet!
+Vets On Call Network was founded to be the go-to resource for Telehealth solutions including connecting Veterinarians (Vets) with Specialists virtually via a custom designed patient-centric telemedicine platform.
+`,
   },
   {
-    id: 5,
-    name: "Get Hoopte",
-    href: "https://apps.apple.com/pk/app/get-hooptie/id6446233423",
-    imageSrc: GetHoopte,
-    used: "Expo, TypeScript etc",
-    description:
-      "Get Hooptie connects Drivers and Passengers heading the same way. Hosts post trips with destinations, charges, and seat availability. Riders choose destinations, book seats, and meet the Host at a pickup point. Simple, seamless, and convenient!",
+    id: 12,
+    name: "Parko",
+    href: "https://apps.apple.com/pk/app/parko-al/id6740145359",
+    android: "https://play.google.com/store/apps/details?id=com.parko.albania",
+    // imageSrc: VOcn,
+    used: "React native, JavaScript ",
+    description: `Parko offers you the opportunity to earn money from your private parking spaces. If you own a parking space that sits unused for part of the time, you can list it on Parko and generate extra income!
+Also, Parko allows you to easily find free parking spaces in the city, book them and pay them directly through our secure and fast system.`,
   },
   {
-    id: 6,
-    name: "Get Reframe",
-    href: "#",
-    imageSrc: GetReframe,
-    used: "React Native, JavaScript etc",
-    description: "learning app",
-  },
-  {
-    id: 7,
-    name: "Mostagbalik",
-    href: "https://play.google.com/store/apps/details?id=com.mostagbalik&pcampaignid=web_share",
-    imageSrc: Mostagbalik,
-    used: "React native, JavaScript",
-    description:
-      "Mostagbalik is your 24/7 Academic Consultancy, guiding students to secure university acceptances and providing academic and career support. From choosing majors and applying to universities to assisting with visas, assignments, and job placements, we’re revolutionizing academic counseling. Soon, our app will make accessing services, applying to universities, and tracking paperwork easier than ever. Let us help you achieve your goals!",
+    id: 12,
+    name: "Readi Pacific",
+    href: "https://apps.apple.com/pk/app/readi-pacific/id6740719509",
+    android: "https://play.google.com/store/apps/details?id=com.readi.pacific",
+    // imageSrc: VOcn,
+    used: "React native, JavaScript ",
+    description: `Important emergency information for the Pacific Island region all in one place. Accurate and timely information from disaster response and recovery agencies for countries in the Pacific Island region. Over 70 different information sources covering Earthquake, Tsunami, Cyclone, Fire, Flood etc. Easy to access right when you need it. Be Readi!`,
   },
   {
     id: 8,
     name: "My Drink Order",
     href: "https://apps.apple.com/pk/app/my-drink-order/id6443959789",
-    imageSrc: MyDrinkOrder,
+    android: "https://play.google.com/store/apps/details?id=com.hey_bartender",
     used: "React native, JavaScript",
     description:
       "Skip the chaos with My Drink app! Browse popular drinks, customize orders, and show them to your bartender—no shouting needed. Order fast, enjoy quicker!",
   },
   {
-    id: 9,
-    name: "OrderLemon",
-    href: "https://play.google.com/store/apps/details?id=com.orderlemon&pcampaignid=web_share",
-    imageSrc: OrderLemon,
-    used: "React Native, TypeScript",
-    description:
-      "Sell via WhatsApp! Manage shops, staff, and orders with ease. Get a local WhatsApp number—no registration needed. Accessible on any device!",
+    id: 12,
+    name: "Cobone Partner",
+    href: "https://apps.apple.com/us/app/cobone-partner/id1115537561",
+    android:
+      "https://play.google.com/store/apps/details?id=com.cobone.merchantapp",
+    // imageSrc: VOcn,
+    used: "React native, JavaScript ",
+    description: "",
   },
   {
-    id: 10,
+    id: 12,
+    name: "Advantage GCC",
+    href: "https://apps.apple.com/us/app/advantage-gcc/id6752327813",
+    android:
+      "https://play.google.com/store/apps/details?id=com.advantagegcc.app",
+    // imageSrc: VOcn,
+    used: "React native, JavaScript ",
+    description: "",
+  },
+  {
+    id: 12,
+    name: "CatPricePro",
+    href: "https://apps.apple.com/pk/app/catpricepro/id6759843236",
+    android:
+      "https://play.google.com/store/apps/details?id=com.fedebenalua.catpricepro",
+    // imageSrc: VOcn,
+    used: "React native, JavaScript ",
+    description:
+      "CatPrice Pro helps you manage products, customers, and purchases in one place. Create purchase records with item photos, apply discounts, and generate receipts you can print or export as a PDF.",
+  },
+  {
+    id: 12,
+    name: "Boda - Yomecaso",
+    href: "https://apps.apple.com/pk/app/boda-yomecaso/id6756235262",
+    android:"https://play.google.com/store/apps/details?id=com.weddingplanner.boda.yomecaso",
+    // imageSrc: VOcn,
+    used: "React native, JavaScript ",
+    description:
+      "Plan your dream wedding easily and efficiently. YoMeCaso is your personal assistant, guiding you every step of the way to the most special day of your life.",
+  },
+  {
+    id: 12,
+    name: "Praynet",
+    href:"",
+    android:"https://play.google.com/store/apps/details?id=com.praynet.prayer",
+    // imageSrc: VOcn,
+    used: "React native, JavaScript ",
+    description:
+      "Plan your dream wedding easily and efficiently. YoMeCaso is your personal assistant, guiding you every step of the way to the most special day of your life.",
+  },
+  {
+    id: 12,
+    name: "Ritmo 101.9",
+    href:"https://apps.apple.com/pk/app/ritmo-101-9/id6469441719",
+    android:"",
+    // imageSrc: VOcn,
+    used: "React native, JavaScript ",
+    description:
+      "Ritmo 101.9 by TPA Broadcasting delivers a powerful and immersive streaming experience for radio and TV content" },
+  {
+    id: 12,
+    name: "Tradeando",
+    href:"https://apps.apple.com/us/app/tradeando/id6755815321",
+    android:"",
+    // imageSrc: VOcn,
+    used: "React native, JavaScript ",
+    description:"Tradeando is the app designed for those who want to learn, analyze, and trade more clearly in the financial markets. Whether you're a beginner or an experienced trader, here you'll find tools that elevate your decision-making and keep you one step ahead."
+  },
+      
+      {
+    id: 7,
+    name: "Mostagbalik",
+    href: "",
+    android:"https://play.google.com/store/apps/details?id=com.mostagbalik&pcampaignid=web_share",
+    // imageSrc: Mostagbalik,
+    used: "React native, JavaScript",
+    description:
+      "Mostagbalik is your 24/7 Academic Consultancy, guiding students to secure university acceptances and providing academic and career support. From choosing majors and applying to universities to assisting with visas, assignments, and job placements, we’re revolutionizing academic counseling. Soon, our app will make accessing services, applying to universities, and tracking paperwork easier than ever. Let us help you achieve your goals!",
+  },
+  {
+    id: 12,
+    name: "QR Scanner Generate",
+    href: "https://apps.apple.com/pk/app/qr-scanner-generate/id6753979837",
+    android: "",
+    // imageSrc: VOcn,
+    used: "React native, JavaScript ",
+    description:
+      "QR & Bar Scanner & Generator, Food analysis by photo - the fast, privacy-minded QR & barcode tool for everyday life.",
+  },
+  {
+    id: 12,
+    name: "MMPSites",
+    href: "https://apps.apple.com/pk/app/mmpsites/id6447799556",
+    android: "",
+    // imageSrc: VOcn,
+    used: "React native, JavaScript ",
+    description: `The platform MMP Sites is just for the purpose of information of different sellers at this platform for the convenience of public. we provide information about the
+different person connected with different fields of construction industry let the both ends meet`,
+  },
+  {
+    id: 12,
+    name: "LocalList Live",
+    href: "https://apps.apple.com/pk/app/locallist-live/id6760908956",
+    android: "",
+    // imageSrc: VOcn,
+    used: "React native, JavaScript ",
+    description: `LocalList Live brings live auctions to your city.
+Discover estate sales, garage sales, collectibles, furniture, electronics, tools, and more from sellers in your local community.
+Browse live auctions happening near you, place bids in real time, win great deals, and pick up your items locally.
+No shipping.
+No waiting.
+No marketplace meetups weeks later.`,
+  },
+  {
+    id: 1,
     name: "Socar Tracking",
     href: "https://apps.apple.com/pk/app/socar-tracking/id1141679676",
-    imageSrc: SocarTracking,
-    used: "React Native, TypeScript",
+    android: "https://play.google.com/store/apps/details?id=com.socar3.be",
+    // imageSrc: Reko,
+    used: "Expo, TypeScript etc",
     description:
       "SOCAR TRACKING is the application that will allow the best tracking service for al your vehicles expeditions with SOCAR SHIPPING AGENCY.",
   },
   {
-    id: 11,
-    name: "VIP Wholesale",
-    href: "https://play.google.com/store/apps/details?id=com.ordertaking&pcampaignid=web_share",
-    imageSrc: VIPWholeSale,
-    used: "React native, JavaScript ",
+    id: 8,
+    name: "All Video Downloader & Player",
+    href: "",
+    android: "https://play.google.com/store/apps/details?id=com.videodownloader.videoplayer.scnsoft.videoder.tubex.statussaver.vidmate",
+    imageSrc: "",
+    used: "Java",
     description:
-      "At VIP Wholesale you will find all your convenience store needs. You will find a large variety of grocery items, tobacco, drinks, medicine, car products, home care products, and much more.",
-  },
+      "All Video Downloader & Player is a powerful all-in-one app designed to help you download videos, save media files, manage downloads, " },
   {
-    id: 12,
-    name: "vocn Veterinary TeleSpecialty",
-    href: "#",
-    imageSrc: VOcn,
-    used: "React native, JavaScript ",
-    description: "learning app ",
+    id: 8,
+    name: "Universal Calculator",
+    href: "",
+    android: "https://play.google.com/store/apps/details?id=calculator.scientificcalculator.uniteconverter.statistics.maths.healthfitness",
+      imageSrc: "",
+    used: "Java",
+    description:
+      "it’s a powerful all-in-one tool that combines a conversion calculator, unit converter, fitness & health calculators, pregnancy tools, math & scientific calculators, and a currency converter into one easy-to-use mobile app."
+    },
+  {
+    id: 8,
+    name: "Text Capture , Image to Text",
+    href: "",
+    android: "https://play.google.com/store/apps/details?id=com.photoscaner.imagetotextocr",
+      imageSrc: "",
+    used: "JAVA",
+    description:"Image to Text (Text Capture) allows you to capture text from your device's camera. You can directly click a picture or pick it from a gallery and convert it into text."
+    },
+  {
+    id: 8,
+    name: "Ramadan 2026 – Prayer & Zikr",
+    href: "",
+    android: "https://play.google.com/store/apps/details?id=salman.khan.islamiczikar",
+      imageSrc: "",
+    used: "React Native",
+    description:"Prayer & Zikr is a complete Islamic app designed to help Muslims around the world during the holy month of Ramadan. Ramadan is the ninth month of the Islamic calendar and a time of fasting, prayer, reflection, and devotion."    },
+    {
+    id: 8,
+    name: "ABC 123 Kids: Learn & Play",
+    href: "",
+    android: "https://play.google.com/store/apps/details?id=com.kidseduacationalapp",
+      imageSrc: "",
+    used: "React Native",
+    description:"ABC 123 Kids: Learn & Play is a fun and educational app designed to help kids learn and play. It is a great app for kids to learn and play."
   },
-];
+    {
+    id: 8,
+    name: "Daily Planner: To-Do List",
+    href: "",
+    android: "https://play.google.com/store/apps/details?id=com.todo.reminder.task.dailyplanner",
+    imageSrc: "",
+    used: "React Native",
+    description:"It helps you manage your tasks, work and daily routine in one place. Set reminders, make to-do lists and stay organized every day."
+    },
+   
+  ];
 // fiverr review
 const fiverrTestimonials = [
   {
@@ -597,16 +744,139 @@ const linkedinTestimonials = [
       "https://media.licdn.com/dms/image/v2/D4D03AQEEdeCzY-nmnA/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1723785230212?e=1739404800&v=beta&t=XCknaTfSSK9EdgUmz-rF5yRwJ0Gb6xrIXPEhWWsYpak",
   },
 ];
+function ProjectCard({ project, index, featured = false }) {
+  const techTags = parseTechStack(project.used);
+  const description = getProjectDescription(
+    project,
+    featured ? "featured" : "short"
+  );
+
+  if (featured) {
+    return (
+      <article
+        className="group relative overflow-hidden rounded-3xl border border-base-300/60 bg-base-200/60 backdrop-blur-xl shadow-2xl shadow-primary/10 transition duration-300 hover:shadow-primary/20"
+        data-aos="fade-up"
+      >
+        <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-primary/10 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-20 -left-10 h-48 w-48 rounded-full bg-secondary/10 blur-3xl" />
+        <div className="relative grid gap-0 lg:grid-cols-[1.1fr_1fr]">
+          <div className="flex flex-col justify-center gap-6 border-b border-base-300/40 p-6 sm:p-8 lg:border-b-0 lg:border-r">
+            <div className="flex items-start gap-5">
+              <ProjectIcon project={project} size="featured" />
+              <div className="min-w-0 flex-1">
+                <PlatformBadges project={project} />
+                <h3 className="mt-3 text-2xl font-extrabold tracking-tight sm:text-3xl">
+                  {project.name}
+                </h3>
+              </div>
+            </div>
+            <p className="text-sm leading-7 opacity-80 sm:text-base">
+              {description}
+            </p>
+            {techTags.length > 0 && (
+              <div className="flex flex-wrap gap-2">
+                {techTags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="badge badge-outline border-base-300/70 text-xs font-medium"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+            <StoreButtons project={project} />
+          </div>
+          <div className="flex items-center justify-center bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 p-8 sm:p-10">
+            <div className="relative">
+              <div className="absolute inset-0 scale-110 rounded-[2rem] bg-gradient-to-br from-primary/20 to-secondary/20 blur-2xl" />
+              <ProjectIcon
+                project={project}
+                size="featured"
+                className="relative !h-40 !w-40 sm:!h-48 sm:!w-48 shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      </article>
+    );
+  }
+
+  return (
+    <article
+      className="group flex h-full flex-col overflow-hidden rounded-3xl border border-base-300/60 bg-base-200/60 backdrop-blur-xl shadow-xl shadow-primary/5 transition duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10"
+      data-aos="fade-up"
+      data-aos-delay={(index % 4) * 50}
+    >
+      <div className="relative p-5 pb-0">
+        <div className="flex items-start gap-4">
+          <ProjectIcon project={project} />
+          <div className="min-w-0 flex-1 pt-1">
+            <PlatformBadges project={project} />
+            <h3 className="mt-2 text-base font-bold leading-snug sm:text-lg">
+              {project.name}
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-1 flex-col p-5 pt-4">
+        <p className="line-clamp-3 flex-1 text-sm leading-6 opacity-75">
+          {description}
+        </p>
+        {techTags.length > 0 && (
+          <div className="mt-4 flex flex-wrap gap-1.5">
+            {techTags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full bg-base-300/40 px-2.5 py-1 text-[11px] font-medium opacity-90"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+        <div className="mt-5 border-t border-base-300/40 pt-4">
+          <StoreButtons project={project} compact />
+        </div>
+      </div>
+    </article>
+  );
+}
+
+const FILTER_OPTIONS = [
+  { id: "all", label: "All Apps" },
+  { id: "both", label: "iOS & Android" },
+  { id: "ios", label: "iOS Only" },
+  { id: "android", label: "Android Only" },
+];
+
 export default function Projects() {
-  const [visibleProjects, setVisibleProjects] = useState(4);
+  const [visibleProjects, setVisibleProjects] = useState(8);
+  const [platformFilter, setPlatformFilter] = useState("all");
+
+  const validProjects = projects.filter(Boolean);
 
   useEffect(() => {
     AOS.init({ duration: 2000 });
   }, []);
 
   const handleViewMore = () => {
-    setVisibleProjects((prev) => prev + 4);
+    setVisibleProjects((prev) => prev + 8);
   };
+
+  const filteredProjects = validProjects.filter((project) => {
+    const { hasIos, hasAndroid } = getProjectPlatforms(project);
+    if (platformFilter === "all") return true;
+    if (platformFilter === "both") return hasIos && hasAndroid;
+    if (platformFilter === "ios") return hasIos && !hasAndroid;
+    if (platformFilter === "android") return hasAndroid && !hasIos;
+    return true;
+  });
+
+  const featuredProject =
+    filteredProjects.find((p) => getProjectPlatforms(p).hasIos && getProjectPlatforms(p).hasAndroid) ||
+    filteredProjects[0];
+  const gridProjects = filteredProjects.filter((p) => p !== featuredProject);
 
   const sliderSettings = {
     dots: true,
@@ -639,117 +909,100 @@ export default function Projects() {
     autoplaySpeed: 3000,
   };
 
-  const featuredProject = projects[0];
-  const gridProjects = projects.slice(1);
-
   return (
     <div id="projects">
       <div className="mx-auto max-w-2xl px-6 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8">
-        <h2 className="text-lg leading-7 opacity-80">Browse my recent</h2>
-        <p className="mt-2 text-4xl font-bold tracking-tight sm:text-6xl">
-          Projects
-        </p>
-        <div className="mt-10" data-aos="fade-up">
-          <div className="mb-6 flex items-center justify-between">
-            <p className="text-xl font-bold">Featured Project</p>
-            <span className="badge badge-primary badge-outline">Highlight</span>
-          </div>
-          <div className="group relative overflow-hidden rounded-3xl border border-base-300/60 bg-base-200/60 backdrop-blur-xl shadow-2xl shadow-primary/10 transition duration-300 hover:shadow-primary/20">
-            <div className="grid gap-0 lg:grid-cols-2">
-              <div className="relative overflow-hidden">
-                <img
-                  src={featuredProject.imageSrc}
-                  alt={featuredProject.name}
-                  className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-[1.02]"
-                />
-              </div>
-              <div className="p-6 sm:p-8">
-                <p className="text-xs font-semibold tracking-widest opacity-70">
-                  FEATURED
-                </p>
-                <h3 className="mt-2 text-2xl font-extrabold tracking-tight">
-                  {featuredProject.name}
-                </h3>
-                <p className="mt-3 text-sm leading-7 opacity-80">
-                  {featuredProject.description}
-                </p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  <span className="badge badge-outline border-base-300/70">
-                    {featuredProject.used}
-                  </span>
-                </div>
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <a
-                    href={featuredProject.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="btn btn-primary"
-                  >
-                    Open Project
-                  </a>
-                  <Link
-                    to="contact"
-                    spy={true}
-                    smooth={true}
-                    offset={50}
-                    duration={500}
-                    className="btn btn-outline border-base-300/70"
-                  >
-                    Build Something Similar
-                  </Link>
-                </div>
-              </div>
+        <div className="text-center lg:text-left">
+          <h2 className="text-lg leading-7 opacity-80">Browse my recent</h2>
+          <p className="mt-2 text-4xl font-bold tracking-tight sm:text-6xl">
+            Projects
+          </p>
+          <p className="mt-4 max-w-2xl text-sm leading-7 opacity-70 sm:text-base">
+            {validProjects.length} mobile apps shipped to the App Store and
+            Google Play — tap a store badge to view the live listing.
+          </p>
+        </div>
+
+        <div className="mt-8 flex flex-wrap justify-center gap-2 lg:justify-start">
+          {FILTER_OPTIONS.map((option) => (
+            <button
+              key={option.id}
+              type="button"
+              onClick={() => {
+                setPlatformFilter(option.id);
+                setVisibleProjects(8);
+              }}
+              className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+                platformFilter === option.id
+                  ? "bg-primary text-primary-content shadow-lg shadow-primary/20"
+                  : "border border-base-300/60 bg-base-200/60 hover:border-primary/40"
+              }`}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
+
+        {featuredProject && (
+          <div className="mt-10">
+            <div className="mb-6 flex items-center justify-between">
+              <p className="text-xl font-bold">Featured Project</p>
+              <span className="badge badge-primary badge-outline">Highlight</span>
+            </div>
+            <ProjectCard project={featuredProject} featured />
+            <div className="mt-6 flex justify-center lg:justify-start">
+              <Link
+                to="contact"
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+                className="btn btn-outline border-base-300/70"
+              >
+                Build Something Similar
+              </Link>
             </div>
           </div>
-        </div>
+        )}
 
         <div className="mt-14">
           <div className="mb-6 flex items-center justify-between">
             <p className="text-xl font-bold">More Projects</p>
-            <span className="badge badge-secondary badge-outline">Portfolio</span>
+            <span className="badge badge-secondary badge-outline">
+              {filteredProjects.length} apps
+            </span>
           </div>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {gridProjects.slice(0, visibleProjects).map((project) => (
-              <div
-                key={project.id}
-                className="group relative overflow-hidden rounded-3xl border border-base-300/60 bg-base-200/60 backdrop-blur-xl shadow-xl shadow-primary/5 transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/10"
-                data-aos="flip-left"
-              >
-                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden lg:aspect-none group-hover:brightness-90 duration-300 delay-100 lg:h-64">
-                  <img
-                    src={project.imageSrc}
-                    alt={project.name}
-                    className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                  />
-                </div>
-                <div className="p-5">
-                  <h3 className="text-lg font-bold leading-snug">
-                    <a href={project.href} target="_blank" rel="noreferrer">
-                      <span aria-hidden="true" className="absolute inset-0" />
-                      {project.name}
-                    </a>
-                  </h3>
-                  <p className="mt-2 text-sm opacity-80 line-clamp-2">
-                    {project.description}
-                  </p>
-                  <p className="mt-3 text-sm font-medium opacity-90">{project.used}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          {gridProjects.length === 0 ? (
+            <p className="rounded-2xl border border-dashed border-base-300/60 p-10 text-center opacity-70">
+              No projects match this filter yet.
+            </p>
+          ) : (
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+              {gridProjects.slice(0, visibleProjects).map((project, index) => (
+                <ProjectCard
+                  key={`${project.name}-${index}`}
+                  project={project}
+                  index={index}
+                />
+              ))}
+            </div>
+          )}
           {visibleProjects < gridProjects.length && (
             <div className="mt-10 flex justify-center">
               <button
+                type="button"
                 className="btn btn-outline border-base-300/70"
                 onClick={handleViewMore}
               >
-                View More
+                View More ({gridProjects.length - visibleProjects} remaining)
               </button>
             </div>
           )}
         </div>
         <div className="mt-32 mx-auto max-w-2xl text-center">
-          <h2 className="text-xl leading-7 opacity-80">kind respect from clients</h2>
+          <h2 className="text-xl leading-7 opacity-80">
+            kind respect from clients
+          </h2>
           <p className="mt-2 text-4xl font-bold tracking-tight sm:text-6xl">
             Fiverr
           </p>
@@ -777,7 +1030,9 @@ export default function Projects() {
         {/* upwork rewiew */}
 
         <div className="mt-32 mx-auto max-w-2xl text-center">
-          <h2 className="text-xl leading-7 opacity-80">kind respect from clients</h2>
+          <h2 className="text-xl leading-7 opacity-80">
+            kind respect from clients
+          </h2>
           <p className="mt-2 text-4xl font-bold tracking-tight sm:text-6xl">
             Upwork Talent
           </p>
@@ -803,7 +1058,9 @@ export default function Projects() {
           </Slider>
         </div>
         <div className="mt-32 mx-auto max-w-2xl text-center">
-          <h2 className="text-xl leading-7 opacity-80">kind respect from clients</h2>
+          <h2 className="text-xl leading-7 opacity-80">
+            kind respect from clients
+          </h2>
           <p className="mt-2 text-4xl font-bold tracking-tight sm:text-6xl">
             Linkedin
           </p>

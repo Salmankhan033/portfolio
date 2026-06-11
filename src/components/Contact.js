@@ -1,196 +1,113 @@
 import { useEffect } from "react";
+import { Link } from "react-scroll";
+import {
+  MapPinIcon,
+  ClockIcon,
+  RocketLaunchIcon,
+  GlobeAltIcon,
+} from "@heroicons/react/24/outline";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import SocialLinks from "./SocialLinks";
+
+const highlights = [
+  {
+    icon: RocketLaunchIcon,
+    title: "30+ Apps Shipped",
+    text: "Live on App Store & Google Play",
+  },
+  {
+    icon: GlobeAltIcon,
+    title: "Remote Worldwide",
+    text: "Belgium, US, GCC & beyond",
+  },
+  {
+    icon: ClockIcon,
+    title: "Fast Turnaround",
+    text: "Clear updates & on-time delivery",
+  },
+  {
+    icon: MapPinIcon,
+    title: "Based in Pakistan",
+    text: "Working across time zones",
+  },
+];
 
 export default function Contact() {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
 
-  // Function to collect form data
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    const firstName = event.target["first-name"].value;
-    const lastName = event.target["last-name"].value;
-    const email = event.target["email"].value;
-    const message = event.target["message"].value;
-
-    const subject = "Contact Form Submission";
-    const body = `Full Name: ${firstName} ${lastName}\nEmail: ${email}\nMessage: ${message}`;
-
-    const mailtoLink = `mailto:salmankn033@gmail.com?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
-
-    const opened = window.open(mailtoLink, "_blank");
-    if (!opened) {
-      window.location.href = mailtoLink;
-    }
-  };
-
   return (
-    <div className="py-24 sm:py-32" id="contact">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section className="relative py-24 sm:py-32" id="contact">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-secondary/10 blur-3xl" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-xl leading-7 opacity-80">Get in touch</h2>
+          <h2 className="text-lg leading-7 opacity-80">Ready to start?</h2>
           <p className="mt-2 text-4xl font-bold tracking-tight sm:text-6xl">
-            Contact Me
+            Let&apos;s Work Together
+          </p>
+          <p className="mt-4 text-sm leading-7 opacity-70 sm:text-base">
+            Open for freelance projects and remote roles. Reach out on your
+            preferred platform — I typically respond within 24 hours.
           </p>
         </div>
-        <div className="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-6 sm:mt-20 lg:grid-cols-2" data-aos="zoom-in">
-          <div className="rounded-3xl border border-base-300/60 bg-base-200/60 backdrop-blur-xl p-6 shadow-xl shadow-primary/5">
-            <p className="text-xl font-bold">Let’s build something great</p>
-            <p className="mt-2 text-sm opacity-80">
-              Send a message with your project details. I usually reply within 24 hours.
-            </p>
 
-            <div className="mt-6 space-y-4">
-              <div className="rounded-2xl border border-base-300/60 bg-base-100/30 p-4">
-                <div className="text-xs font-semibold tracking-widest opacity-70">EMAIL</div>
-                <a
-                  className="mt-1 block font-semibold hover:underline"
-                  href="mailto:salmankn033@gmail.com"
-                >
-                  salmankn033@gmail.com
-                </a>
-              </div>
-              <div className="rounded-2xl border border-base-300/60 bg-base-100/30 p-4">
-                <div className="text-xs font-semibold tracking-widest opacity-70">LOCATION</div>
-                <div className="mt-1 font-semibold">Pakistan (Remote)</div>
-              </div>
-              <div className="rounded-2xl border border-base-300/60 bg-base-100/30 p-4">
-                <div className="text-xs font-semibold tracking-widest opacity-70">SOCIAL</div>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  <button
-                    className="btn btn-outline btn-sm border-base-300/70"
-                    onClick={() =>
-                      window.open(
-                        "https://www.linkedin.com/in/salman-mobileappdev/",
-                        "_blank"
-                      )
-                    }
-                    type="button"
-                  >
-                    LinkedIn
-                  </button>
-                  <button
-                    className="btn btn-outline btn-sm border-base-300/70"
-                    onClick={() => window.open("https://github.com/Salmankhan033", "_blank")}
-                    type="button"
-                  >
-                    GitHub
-                  </button>
-                  <button
-                    className="btn btn-outline btn-sm border-base-300/70"
-                    onClick={() => window.open("https://www.fiverr.com/pro_salman11", "_blank")}
-                    type="button"
-                  >
-                    Fiverr
-                  </button>
-                  <button
-                    className="btn btn-outline btn-sm border-base-300/70"
-                    onClick={() =>
-                      window.open(
-                        "https://www.upwork.com/freelancers/~0187e699b709695c45?mp_source=share",
-                        "_blank"
-                      )
-                    }
-                    type="button"
-                  >
-                    Upwork
-                  </button>
-                </div>
-              </div>
+        <div
+          className="mx-auto mt-12 grid max-w-5xl grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4"
+          data-aos="fade-up"
+        >
+          {highlights.map((item) => (
+            <div
+              key={item.title}
+              className="rounded-2xl border border-base-300/60 bg-base-200/50 p-4 text-center backdrop-blur-xl sm:p-5"
+            >
+              <item.icon className="mx-auto h-6 w-6 text-primary" />
+              <p className="mt-3 text-sm font-bold">{item.title}</p>
+              <p className="mt-1 text-xs opacity-70">{item.text}</p>
             </div>
+          ))}
+        </div>
+
+        <div className="mx-auto mt-12 max-w-3xl" data-aos="zoom-in">
+          <div className="rounded-3xl border border-base-300/60 bg-base-200/60 p-6 shadow-xl shadow-primary/5 backdrop-blur-xl sm:p-8">
+            <div className="mb-6 text-center">
+              <p className="text-xl font-bold">Connect with me</p>
+              <p className="mt-2 text-sm opacity-70">
+                Choose a platform below to discuss your next mobile or web project.
+              </p>
+            </div>
+            <SocialLinks variant="cards" />
           </div>
+        </div>
 
-          <form
-            onSubmit={handleSubmit}
-            className="rounded-3xl border border-base-300/60 bg-base-200/60 backdrop-blur-xl p-6 shadow-xl shadow-primary/5"
+        <div
+          className="mx-auto mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+          data-aos="fade-up"
+        >
+          <a
+            href={`${process.env.PUBLIC_URL}/Updated-My-CV.pdf`}
+            download="Salman KHAN CV.pdf"
+            className="btn btn-primary"
           >
-            <div className="grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2">
-              <div>
-                <label
-                  htmlFor="first-name"
-                  className="block text-sm font-semibold leading-6"
-                >
-                  First name
-                </label>
-                <div className="mt-2.5">
-                  <input
-                    type="text"
-                    required
-                    name="first-name"
-                    id="first-name"
-                    autoComplete="given-name"
-                    className="block w-full rounded-xl border border-base-300/70 bg-base-100/70 px-3.5 py-2 text-current shadow-sm focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6"
-                  />
-                </div>
-              </div>
-              <div>
-                <label
-                  htmlFor="last-name"
-                  className="block text-sm font-semibold leading-6"
-                >
-                  Last name
-                </label>
-                <div className="mt-2.5">
-                  <input
-                    type="text"
-                    required
-                    name="last-name"
-                    id="last-name"
-                    autoComplete="family-name"
-                    className="block w-full rounded-xl border border-base-300/70 bg-base-100/70 px-3.5 py-2 text-current shadow-sm focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6"
-                  />
-                </div>
-              </div>
-              <div className="sm:col-span-2">
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-semibold leading-6"
-                >
-                  Email
-                </label>
-                <div className="mt-2.5">
-                  <input
-                    type="email"
-                    required
-                    name="email"
-                    id="email"
-                    autoComplete="email"
-                    className="block w-full rounded-xl border border-base-300/70 bg-base-100/70 px-3.5 py-2 text-current shadow-sm focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6"
-                  />
-                </div>
-              </div>
-              <div className="sm:col-span-2">
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-semibold leading-6"
-                >
-                  Message
-                </label>
-                <div className="mt-2.5">
-                  <textarea
-                    name="message"
-                    required
-                    id="message"
-                    rows={5}
-                    className="block w-full rounded-xl border border-base-300/70 bg-base-100/70 px-3.5 py-2 text-current shadow-sm focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6"
-                    defaultValue={""}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="mt-8">
-              <button type="submit" className="btn btn-primary w-full">
-                Send Message
-              </button>
-            </div>
-          </form>
+            Download CV
+          </a>
+          <Link
+            to="projects"
+            spy={true}
+            smooth={true}
+            offset={50}
+            duration={500}
+            className="btn btn-outline border-base-300/70"
+          >
+            View My Work
+          </Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

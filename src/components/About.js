@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import {
   MapPinIcon,
-  AtSymbolIcon,
   CalendarIcon,
   AcademicCapIcon,
   BriefcaseIcon,
@@ -11,145 +10,126 @@ import "aos/dist/aos.css";
 import MainImage from "../projectImages/main-image.png";
 
 const features = [
-  {
-    name: "Age:",
-    description: "25 years old",
-    icon: CalendarIcon,
-  },
-  {
-    name: "Email:",
-    description: " salmankn033@gmail.com",
-    icon: AtSymbolIcon,
-  },
-  {
-    name: "Location:",
-    description: "Islamabad, Pakistan",
-    icon: MapPinIcon,
-  },
+  { name: "Age", description: "25 years old", icon: CalendarIcon },
+  { name: "Location", description: "Islamabad, Pakistan (Remote)", icon: MapPinIcon },
+];
+
+const experience = [
+  { role: "Mobile App Developer", company: "Fabulor", location: "Kasterlee, Belgium", current: true },
+  { role: "React Native Developer", company: "RGWIT", location: "Belgium", current: true },
+  { role: "Mobile App Technical Team Lead", company: "Codistan Ventures", location: "Islamabad, Pakistan" },
+  { role: "React Native Developer", company: "Smart Soft Studio", location: "Lahore, Pakistan" },
+  { role: "React Native Developer", company: "Fellows TECH NIH", location: "Islamabad, Pakistan" },
+  { role: "React Native Developer", company: "WeAreNova", location: "Islamabad, Pakistan" },
+  { role: "Android Developer", company: "ZealSoul Technology", location: "Bannu, Pakistan" },
+];
+
+const education = [
+  "BS Computer Science — University of Science & Technology Bannu, KPK",
+  "Diploma in Information Technology",
 ];
 
 export default function About() {
   useEffect(() => {
     AOS.init({ duration: 2000 });
   }, []);
+
   return (
-    <div
-      className="relative isolate overflow-hidden px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0"
-      id="about"
-    >
-      <div className="mx-auto max-w-7xl px-0 lg:px-8">
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
-          <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
-            <div className="lg:pr-4">
-              <div className="lg:max-w-lg">
-                <h2 className="text-lg leading-7 opacity-80">Get to know more</h2>
-                <p className="mt-2 text-4xl font-bold tracking-tight sm:text-6xl">
-                  About Me
-                </p>
-                <p className="mt-6 text-lg leading-8" data-aos="fade-right">
-                  I am a Computer Science graduate with a passion for mobile app
-                  development using React Native. I am eager to immerse myself in
-                  a dynamic and challenging work environment that fosters
-                  continual improvement and learning. I am driven to contribute my
-                  skills and dedication to propel both my personal growth and the
-                  advancement of the company within the ever-evolving software
-                  engineering industry.
-                </p>
-              </div>
-            </div>
+    <section className="relative px-6 py-24 sm:py-32" id="about">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div data-aos="fade-right">
+            <h2 className="text-lg leading-7 opacity-80">Get to know more</h2>
+            <p className="mt-2 text-4xl font-bold tracking-tight sm:text-5xl">
+              About Me
+            </p>
+            <p className="mt-6 text-lg leading-8 opacity-85">
+              Computer Science graduate and React Native specialist with 7+ years
+              building production mobile apps for clients across Belgium, the US,
+              GCC, and Pakistan. I deliver clean code, polished UI, and full
+              store publishing — from MVP to live App Store & Play Store release.
+            </p>
+
+            <dl className="mt-8 space-y-4">
+              {features.map((feature) => (
+                <div
+                  key={feature.name}
+                  className="flex items-center gap-3 rounded-xl border border-base-300/50 bg-base-200/40 px-4 py-3"
+                >
+                  <feature.icon className="h-5 w-5 shrink-0 text-primary" />
+                  <div>
+                    <dt className="text-xs font-semibold uppercase tracking-wider opacity-60">
+                      {feature.name}
+                    </dt>
+                    <dd className="font-medium">{feature.description}</dd>
+                  </div>
+                </div>
+              ))}
+            </dl>
           </div>
-          <div
-            className="-ml-12 -mt-12 p-12 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden"
-            data-aos="fade-left"
-          >
+
+          <div className="relative" data-aos="fade-left">
+            <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-primary/20 to-secondary/10 blur-2xl" />
             <img
-              className="w-[38rem] max-w-none rounded-3xl border border-base-300/60 shadow-2xl shadow-primary/10 sm:w-[57rem]"
+              className="relative w-full max-w-lg rounded-3xl border border-base-300/60 object-cover shadow-2xl shadow-primary/10 lg:ml-auto"
               src={MainImage}
-              alt="Person"
+              alt="Salman Khan at work"
             />
           </div>
         </div>
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
-          <div className="lg:col-span-2 lg:col-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:gap-x-8 lg:px-8">
-            <div className="text-base leading-7">
-              <div className="grid gap-x-6 sm:grid-cols-2">
-                <div
-                  className="mt-10 rounded-3xl border border-base-300/60 bg-base-200/60 backdrop-blur-xl p-6 shadow-xl shadow-primary/5"
-                  data-aos="zoom-in"
-                >
-                  <BriefcaseIcon className="h-5 w-5 mx-auto" aria-hidden="true" />
-                  <h2 className=" text-2xl text-center font-bold tracking-tight">
-                    Experience
-                  </h2>
-                  <p className="mt-3 list-item list-inside">
-                    Mobile App Developer Fabulor,Kasterlee Antwerp,Belgium
-                    (Current)
-                  </p>
-                  <p className="mt-3 list-item list-inside">
-                    React Native Developer RGWIT,Belgium. (Current)
-                  </p>
-                  <p className="mt-3 list-item list-inside">
-                    Mobile App Technical Team Lead Codistan
-                    Ventures,Islamabad.Pakistan.
-                  </p>
-                  <p className="mt-3 list-item list-inside">
-                    React Native Developer Smart Soft Studio ,Lahore,Pakistan.
-                  </p>
-                  <p className="mt-3 list-item list-inside">
-                    React Native Fellows TECH NIH,ISLAMABAD,Pakistan.
-                  </p>
-                  <p className="mt-3 list-item list-inside">
-                    React Native WeAreNova, ISLAMABAD,Pakistan.
-                  </p>
-                  <p className="mt-3 list-item list-inside">
-                    Android Developer ZealSoul Technology limited, Bannu,
-                    Pakistan.
-                  </p>
-                </div>
-                <div
-                  className="mt-10 rounded-3xl border border-base-300/60 bg-base-200/60 backdrop-blur-xl p-6 shadow-xl shadow-primary/5"
-                  data-aos="zoom-in"
-                >
-                  <AcademicCapIcon
-                    className="h-5 w-5 mx-auto"
-                    aria-hidden="true"
-                  />
-                  <h2 className=" text-2xl text-center font-bold tracking-tigh">
-                    Education
-                  </h2>
-                  <p className="mt-3 list-item list-inside">
-                    BS Computer Science, University of Science & Technology Bannu,
-                    KPK
-                  </p>
-                  <p className="mt-3 list-item list-inside">
-                    Diploma in Information Technology
-                  </p>
-                  {/* <p className="mt-3 list-item list-inside">
-                  Cisco IT Essentials
-                </p> */}
-                </div>
-              </div>
-              <dl
-                className="mt-10 space-y-8 text-base leading-7 lg:max-w-none"
-                data-aos="fade-right"
-              >
-                {features.map((feature) => (
-                  <div key={feature.name} className="relative pl-9">
-                    <dt className="inline font-semibold">
-                      <feature.icon
-                        className="absolute left-1 top-1 h-5 w-5"
-                        aria-hidden="true"
-                      />
-                      {feature.name}
-                    </dt>{" "}
-                    <dd className="inline">{feature.description}</dd>
-                  </div>
-                ))}
-              </dl>
+
+        <div className="mt-16 grid gap-6 lg:grid-cols-2">
+          <div
+            className="rounded-3xl border border-base-300/60 bg-base-200/60 p-6 shadow-xl shadow-primary/5 backdrop-blur-xl sm:p-8"
+            data-aos="zoom-in"
+          >
+            <div className="flex items-center gap-3">
+              <BriefcaseIcon className="h-6 w-6 text-primary" />
+              <h3 className="text-2xl font-bold">Experience</h3>
             </div>
+            <ul className="mt-6 space-y-4">
+              {experience.map((job) => (
+                <li
+                  key={`${job.company}-${job.role}`}
+                  className="relative border-l-2 border-primary/30 pl-4"
+                >
+                  <div className="flex flex-wrap items-center gap-2">
+                    <p className="font-semibold">{job.role}</p>
+                    {job.current && (
+                      <span className="badge badge-primary badge-outline badge-sm">
+                        Current
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-sm opacity-80">
+                    {job.company} · {job.location}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div
+            className="rounded-3xl border border-base-300/60 bg-base-200/60 p-6 shadow-xl shadow-primary/5 backdrop-blur-xl sm:p-8"
+            data-aos="zoom-in"
+          >
+            <div className="flex items-center gap-3">
+              <AcademicCapIcon className="h-6 w-6 text-primary" />
+              <h3 className="text-2xl font-bold">Education</h3>
+            </div>
+            <ul className="mt-6 space-y-4">
+              {education.map((item) => (
+                <li
+                  key={item}
+                  className="rounded-xl border border-base-300/50 bg-base-100/30 px-4 py-3 text-sm leading-6"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
