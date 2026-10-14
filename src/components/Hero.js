@@ -10,7 +10,8 @@ import { Link } from "react-scroll";
 import { TypeAnimation } from "react-type-animation";
 import SocialLinks from "./SocialLinks";
 
-const pfp = `${process.env.PUBLIC_URL}/hero-photo.jpg`;
+const pfp = `${process.env.PUBLIC_URL}/profile.jpg`;
+const logo = `${process.env.PUBLIC_URL}/logo192.png`;
 
 const navigation = [
   { name: "About", id: "about" },
@@ -49,8 +50,13 @@ export default function Hero() {
             smooth={true}
             offset={50}
             duration={500}
-            className="-m-1.5 cursor-pointer p-1.5 font-heading text-lg font-bold tracking-tight"
+            className="-m-1.5 flex cursor-pointer items-center gap-3 p-1.5 font-heading text-lg font-bold tracking-tight"
           >
+            <img
+              src={logo}
+              alt=""
+              className="h-9 w-9 rounded-full object-cover ring-2 ring-primary/40"
+            />
             Salman Khan
           </Link>
 
