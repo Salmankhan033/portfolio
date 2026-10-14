@@ -1,6 +1,6 @@
 {
-  "short_name": "Portfolio",
-  "name": "React Portfolio",
+  "short_name": "Salman Khan",
+  "name": "Salman Khan | React Native Developer",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#05070D",
+  "background_color": "#05070D"
 }
